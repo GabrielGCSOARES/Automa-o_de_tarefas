@@ -28,10 +28,46 @@ pyautogui.press("enter")
 time.sleep(3)
 # Passo 3; Importar a base de dados
 import pandas 
-pandas.read_csv("produtos.csv")
+
+#esse tabela é uma variavel 
+tabela = pandas.read_csv("produtos.csv")
+print(tabela)
 
 
-# Passo 4: fazer o cadastro do produtos sendo seu código,marca, tipo,categoria, preço,custo,OBS
+# Passo 4: cadastrar o 1 produto
+pyautogui.click(x=613, y=328)
+
+codigo = "MOLO000251"
+pyautogui.write(codigo)
+
+marca = "Logitech"
+pyautogui.press("tab")
+pyautogui.write(marca)
+
+tipo = " Mouse"
+pyautogui.press("tab")
+pyautogui.write(tipo)
+
+categoria = "1"
+pyautogui.press("tab")
+pyautogui.write(categoria)
+
+preco_unitario = "25.95"
+pyautogui.press("tab")
+pyautogui.write(preco_unitario)
+
+custo = "6.5"
+pyautogui.press("tab")
+pyautogui.write(custo)
+
+obs = ""
+pyautogui.press("tab")
+pyautogui.write(obs)
+
+pyautogui.press("tab")#passou para o botão enviar
+pyautogui.press("enter")
+
+pyautogui.scroll(10000)
 # Passo 5: Repetir para todos os produtos 
 
 #pyautogui -> fazer automações com pyhton
