@@ -35,39 +35,45 @@ print(tabela)
 
 
 # Passo 4: cadastrar o 1 produto
-pyautogui.click(x=613, y=328)
+for linha in tabela.index: 
 
-codigo = "MOLO000251"
-pyautogui.write(codigo)
+    pyautogui.click(x=613, y=328)
 
-marca = "Logitech"
-pyautogui.press("tab")
-pyautogui.write(marca)
+    codigo = tabela.loc[linha, "codigo"]
+    pyautogui.write(codigo)
 
-tipo = " Mouse"
-pyautogui.press("tab")
-pyautogui.write(tipo)
+    marca = tabela.loc[linha, "marca"]
+    pyautogui.press("tab")
+    pyautogui.write(marca)
 
-categoria = "1"
-pyautogui.press("tab")
-pyautogui.write(categoria)
+    tipo = tabela.loc[linha, "tipo"]
+    pyautogui.press("tab")
+    pyautogui.write(tipo)
 
-preco_unitario = "25.95"
-pyautogui.press("tab")
-pyautogui.write(preco_unitario)
+    categoria = str(tabela.loc[linha, "categoria"])
+    pyautogui.press("tab")
+    pyautogui.write(categoria)
 
-custo = "6.5"
-pyautogui.press("tab")
-pyautogui.write(custo)
+    preco_unitario = str(tabela.loc[linha, "preco_unitario"])
+    pyautogui.press("tab")
+    pyautogui.write(preco_unitario)
 
-obs = ""
-pyautogui.press("tab")
-pyautogui.write(obs)
+    custo = str(tabela.loc[linha, "custo"])
+    pyautogui.press("tab")
+    pyautogui.write(custo)
 
-pyautogui.press("tab")#passou para o botão enviar
-pyautogui.press("enter")
+    obs = str(tabela.loc[linha, "obs"])
+    pyautogui.press("tab")
+    
+    if obs != "nan":
+        pyautogui.write(obs)
 
-pyautogui.scroll(10000)
-# Passo 5: Repetir para todos os produtos 
+    pyautogui.press("tab")#passou para o botão enviar
+    pyautogui.press("enter")
+
+    pyautogui.scroll(10000)
+
+
+
 
 #pyautogui -> fazer automações com pyhton
